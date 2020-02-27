@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float padding = 1f;
+    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] private float projectileSpeed = 10f;
     
     private float xMin;
     private float xMax;
@@ -12,19 +15,21 @@ public class Player : MonoBehaviour
 
     private void Start() => SetUpMoveBoundaries();
 
-    private void SetUpMoveBoundaries()
+    // Update is called once per frame
+    private void Update()
     {
-        Camera gameCamera = Camera.main;
-
-        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
-        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
-
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
-        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
+        Move();
+        Fire();
     }
 
-    // Update is called once per frame
-    void Update() => Move();
+    private void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            var laser = Instantiate(laserPrefab, transform.position, transform.rotation);
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+        }
+    }
 
     private void Move()
     {
@@ -35,5 +40,16 @@ public class Player : MonoBehaviour
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
         
         transform.position = new Vector2(newXPos, newYPos);
+    }
+
+    private void SetUpMoveBoundaries()
+    {
+        Camera gameCamera = Camera.main;
+
+        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
+        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
+
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
+        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 }
