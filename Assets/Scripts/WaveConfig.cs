@@ -14,7 +14,18 @@ public class WaveConfig : ScriptableObject
 
     public GameObject EnemyPrefab => enemyPrefab;
 
-    public GameObject PathPrefab => pathPrefab;
+    public List<Transform> Waypoints
+    {
+        get
+        {
+            var waveWaypoints = new List<Transform>();
+            foreach (Transform child in pathPrefab.transform)
+            {
+                waveWaypoints.Add(child);
+            }
+            return waveWaypoints;
+        }
+    }
 
     public float TimeBetweenSpawns => timeBetweenSpawns;
 
