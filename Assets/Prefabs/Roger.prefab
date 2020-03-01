@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 4327893771405107624}
   - component: {fileID: 4327893771405107625}
   - component: {fileID: 114735442240905972}
+  - component: {fileID: 114495668953550472}
+  - component: {fileID: 60793412335967028}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Roger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,5 +94,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab4ffaa160d0934aba875bb0909a70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfig: {fileID: 11400000, guid: 9d0a3e48e2726bd46afd6ddc0e70f837, type: 2}
-  moveSpeed: 2
+--- !u!114 &114495668953550472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327893771405107627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44227ed2e95e1174a81dd8a9d7ba9c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!60 &60793412335967028
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327893771405107627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.93, y: 0.84}
+    newSize: {x: 0.93, y: 0.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.099675775, y: -0.38399816}
+      - {x: -0.15873104, y: -0.1699841}
+      - {x: 0.15897527, y: -0.17165017}
+      - {x: 0.1010781, y: -0.3699026}
+      - {x: 0.24456605, y: -0.42179036}
+      - {x: 0.465, y: 0.15914083}
+      - {x: 0.2945661, y: 0.41462946}
+      - {x: -0.30635625, y: 0.41283917}
+      - {x: -0.47574136, y: 0.16247702}
+      - {x: -0.2545661, y: -0.4182098}
