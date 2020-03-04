@@ -9,6 +9,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private GameObject particleExplosion;
     [SerializeField] private float durationOfExplosion = 1f;
+    [SerializeField] private AudioClip deathSfx;
+    [SerializeField] [Range(0, 1)] private float deathSfxVolume = .75f;
+    [SerializeField] private AudioClip shootSfx;
+    [SerializeField] [Range(0, 1)] private float shootSfxVolume = .25f;
 
     private float shotCounter;
 
@@ -35,6 +39,9 @@ public class Enemy : MonoBehaviour
     {
         var laser = Instantiate(projectile, transform.position, Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
+
+        AudioSource.PlayClipAtPoint(shootSfx, Camera.main.transform.position, shootSfxVolume);
+
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
     }
 
@@ -60,6 +67,7 @@ public class Enemy : MonoBehaviour
     {
         var explosion = Instantiate(particleExplosion, transform.position, transform.rotation);
         Destroy(explosion, durationOfExplosion);
+        AudioSource.PlayClipAtPoint(deathSfx, Camera.main.transform.position, deathSfxVolume);
         Destroy(gameObject);
     }
 }

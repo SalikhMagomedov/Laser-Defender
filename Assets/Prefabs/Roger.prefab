@@ -115,6 +115,10 @@ MonoBehaviour:
   particleExplosion: {fileID: 3484862205088017357, guid: 13b03dbb226626f4da5388dcae6b6dc3,
     type: 3}
   durationOfExplosion: 2
+  deathSfx: {fileID: 8300000, guid: 079e831667165804888276a0c829453e, type: 3}
+  deathSfxVolume: 0.75
+  shootSfx: {fileID: 8300000, guid: ffaa277fdc840aa4bbfd2a5203d86577, type: 3}
+  shootSfxVolume: 0.5
 --- !u!60 &60793412335967028
 PolygonCollider2D:
   m_ObjectHideFlags: 0
