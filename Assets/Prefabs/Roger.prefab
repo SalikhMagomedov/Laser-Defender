@@ -112,6 +112,9 @@ MonoBehaviour:
   projectile: {fileID: 6412705974792340584, guid: 78a11096dc2ed2246b717e05ee0f1936,
     type: 3}
   projectileSpeed: 10
+  particleExplosion: {fileID: 3484862205088017357, guid: 13b03dbb226626f4da5388dcae6b6dc3,
+    type: 3}
+  durationOfExplosion: 2
 --- !u!60 &60793412335967028
 PolygonCollider2D:
   m_ObjectHideFlags: 0
