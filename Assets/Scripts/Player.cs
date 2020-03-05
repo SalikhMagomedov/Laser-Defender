@@ -104,4 +104,6 @@ public class Player : MonoBehaviour
         FindObjectOfType<Level>().LoadGameOver();
         Destroy(gameObject);
     }
+
+    public int Health => health;
 }
