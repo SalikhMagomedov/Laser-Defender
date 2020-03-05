@@ -6,9 +6,17 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private float waitTime = 2f;
 
-    public void LoadStartMenu() => SceneManager.LoadScene(0);
+    public void LoadStartMenu()
+    {
+        FindObjectOfType<GameSession>().ResetGame();
+        SceneManager.LoadScene(0);
+    }
 
-    public void LoadGame() => SceneManager.LoadScene("Game");
+    public void LoadGame()
+    {
+        FindObjectOfType<GameSession>().ResetGame();
+        SceneManager.LoadScene("Game");
+    }
 
     public void LoadGameOver()
     {
